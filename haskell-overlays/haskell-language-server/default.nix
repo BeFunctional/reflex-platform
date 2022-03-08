@@ -95,6 +95,12 @@ in self: super: {
     dontCheck (self.callHackage "hls-fourmolu-plugin" "1.0.1.1" { });
   lsp = dontCheck (self.callHackage "lsp" "1.4.0.0" { });
   lsp-types = dontCheck (self.callHackage "lsp-types" "1.4.0.0" { });
+  # needed by hiedb
+  algebraic-graphs = dontCheck (self.callHackageDirect {
+    pkg = "algebraic-graphs";
+    ver = "0.6";
+    sha256 = "3iD+pnCU6Q0hv6u7Qe5Rc6F5swLXTcZPtgN74aI1BK8=";
+  } { });
 
   # Hackage dependencies of haskell-language-server that are broken with the default version
   floskell = dontCheck (self.callHackage "floskell" "0.10.4" { });
