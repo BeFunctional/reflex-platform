@@ -101,6 +101,7 @@ in self: super: {
     ver = "0.6";
     sha256 = "3iD+pnCU6Q0hv6u7Qe5Rc6F5swLXTcZPtgN74aI1BK8=";
   } { });
+  ghc-source-gen = dontCheck (self.callHackage "ghc-source-gen" "0.4.1.0" { });
 
   # Hackage dependencies of haskell-language-server that are broken with the default version
   floskell = dontCheck (self.callHackage "floskell" "0.10.4" { });
