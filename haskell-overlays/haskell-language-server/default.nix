@@ -32,6 +32,7 @@ in self: super: {
   cabal-helper =
     dontCheck (self.callCabal2nix "cabal-helper" cabalHelperSrc { });
   ghcide = dontCheck (self.callCabal2nix "ghcide" ghcideSrc { });
+  hashable = self.callHackage "hashable" "1.3.5.0" { };
   ghc-mod-core =
     dontCheck (self.callCabal2nix "ghc-mod-core" ghcModCoreSrc { });
   ghc-mod = dontCheck (self.callCabal2nix "ghc-mod" ghcModSrc { });
@@ -154,8 +155,6 @@ in self: super: {
 
   test-framework = dontCheck (self.callHackage "test-framework" "0.8.2.0" { });
 
-  # Hackage dependencies of heapsize
-  hashable = dontCheck (self.callHackage "hashable" "1.3.0.0" { });
 
   # Hackage dependencies of aeson
   primitive = dontCheck (self.callHackage "primitive" "0.7.1.0" { });
@@ -182,4 +181,5 @@ in self: super: {
   refinery = dontCheck (self.callHackage "refinery" "0.3.0.0" { });
   # Needed by hls
   hiedb = self.callHackage "hiedb" "0.4.1.0" { };
+  lucid = dontCheck(super.lucid);
 }
