@@ -20,7 +20,6 @@ let
   hlsHlintPluginSrc = hlsSrc + "/plugins/hls-hlint-plugin";
   hlsPluginApiSrc = hlsSrc + "/hls-plugin-api";
   hlsRetriePluginSrc = hlsSrc + "/plugins/hls-retrie-plugin";
-  hlsTacticsPluginSrc = hlsSrc + "/plugins/tactics";
   shakeBenchSrc = hlsSrc + "/shake-bench";
 
 in self: super: {
@@ -57,8 +56,7 @@ in self: super: {
     dontCheck (self.callCabal2nix "hls-plugin-api" hlsPluginApiSrc { });
   hls-retrie-plugin =
     dontCheck (self.callCabal2nix "hls-retrie-plugin" hlsRetriePluginSrc { });
-  hls-tactics-plugin =
-    dontCheck (self.callCabal2nix "hls-tactics-plugin" hlsTacticsPluginSrc { });
+
   shake-bench = dontCheck (self.callCabal2nix "shake-bench" shakeBenchSrc { });
 
   # Hackage dependencies of haskell-language-server
@@ -68,34 +66,33 @@ in self: super: {
   stylish-haskell =
     dontCheck (self.callHackage "stylish-haskell" "0.12.2.0" { });
   hie-bios = dontCheck (self.callHackage "hie-bios" "0.7.1" { });
-  brittany = dontCheck (self.callCabal2nix "brittany" (fetchGit {
-    url = "https://github.com/lspitzner/brittany.git";
-    ref = "0.13.1.0";
-  }) { });
+  brittany = dontCheck (self.callHackage "brittany" "0.13.1.0" { });
+  hls-tactics-plugin =
+    dontCheck (self.callHackage "hls-tactics-plugin" "1.5.0.1" { });
   hls-brittany-plugin =
-    dontCheck (self.callHackage "hls-brittany-plugin" "1.0.2.0" { });
+    dontCheck (self.callHackage "hls-brittany-plugin" "1.0.1.1" { });
   hls-call-hierarchy-plugin =
-    dontCheck (self.callHackage "hls-call-hierarchy-plugin" "1.0.2.0" { });
+    dontCheck (self.callHackage "hls-call-hierarchy-plugin" "1.0.1.1" { });
   hls-ormolu-plugin =
     dontCheck (self.callHackage "hls-ormolu-plugin" "1.0.1.0" { });
-  hls-graph = dontCheck (self.callHackage "hls-graph" "1.6.0.0" { });
+  hls-graph = dontCheck (self.callHackage "hls-graph" "1.5.1.1" { });
   hls-refine-imports-plugin =
-    dontCheck (self.callHackage "hls-refine-imports-plugin" "1.0.1.0" { });
+    dontCheck (self.callHackage "hls-refine-imports-plugin" "1.0.0.2" { });
   hls-pragmas-plugin =
     dontCheck (self.callHackage "hls-pragmas-plugin" "1.0.1.0" { });
   hls-splice-plugin =
-    dontCheck (self.callHackage "hls-splice-plugin" "1.0.1.0" { });
+    dontCheck (self.callHackage "hls-splice-plugin" "1.0.0.6" { });
   hls-stylish-haskell-plugin =
-    dontCheck (self.callHackage "hls-stylish-haskell-plugin" "1.0.1.0" { });
+    dontCheck (self.callHackage "hls-stylish-haskell-plugin" "1.0.0.4" { });
   hls-test-utils = dontCheck (self.callHackage "hls-test-utils" "1.2.0.0" { });
   hls-module-name-plugin =
-    dontCheck (self.callHackage "hls-module-name-plugin" "1.0.1.0" { });
+    dontCheck (self.callHackage "hls-module-name-plugin" "1.0.0.3" { });
   hls-haddock-comments-plugin =
-    dontCheck (self.callHackage "hls-haddock-comments-plugin" "1.0.1.0" { });
+    dontCheck (self.callHackage "hls-haddock-comments-plugin" "1.0.0.4" { });
   hls-floskell-plugin =
-    dontCheck (self.callHackage "hls-floskell-plugin" "1.0.1.0" { });
+    dontCheck (self.callHackage "hls-floskell-plugin" "1.0.0.2" { });
   hls-fourmolu-plugin =
-    dontCheck (self.callHackage "hls-fourmolu-plugin" "1.0.2.0" { });
+    dontCheck (self.callHackage "hls-fourmolu-plugin" "1.0.1.1" { });
   lsp = dontCheck (self.callHackage "lsp" "1.4.0.0" { });
   lsp-types = dontCheck (self.callHackage "lsp-types" "1.4.0.0" { });
 
@@ -104,18 +101,11 @@ in self: super: {
 
   # Hackage dependencies of ghcide
   ghc-check = dontCheck (self.callHackage "ghc-check" "0.5.0.3" { });
-  implicit-hie-cradle = dontCheck (self.callCabal2nix "implicit-hie-cradle"
-    (fetchGit {
-      url = "https://github.com/Avi-D-coder/implicit-hie-cradle.git";
-      ref = "b42e38bdde93e7e6298bd83cfdf750414e15ec5e";
-    }) { }); # 0.3.0.2 is not on hackage yet
-  # implicit-hie-cradle = dontCheck (self.callHackage "implicit-hie-cradle" "0.3.0.2" {});
+  heapsize = dontCheck (self.callHackage "heapsize" "0.3.0.1" { });
+  implicit-hie-cradle =
+    dontCheck (self.callHackage "implicit-hie-cradle" "0.3.0.2" { });
   opentelemetry = dontCheck (self.callHackage "opentelemetry" "0.6.1" { });
   lsp-test = dontCheck (self.callHackage "lsp-test" "0.11.0.5" { });
-  heapsize = dontCheck (self.callCabal2nix "heapsize" (fetchGit {
-    url = "https://github.com/pepeiborra/heapsize.git";
-    ref = "v0.3.0.1";
-  }) { });
   shake = dontCheck (self.callHackage "shake" "0.19.2" { });
 
   # opentelemetry
