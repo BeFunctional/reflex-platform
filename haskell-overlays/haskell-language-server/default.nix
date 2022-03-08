@@ -72,6 +72,32 @@ in self: super: {
     url = "https://github.com/lspitzner/brittany.git";
     ref = "0.13.1.0";
   }) { });
+  hls-brittany-plugin =
+    dontCheck (self.callHackage "hls-brittany-plugin" "1.0.2.0" { });
+  hls-call-hierarchy-plugin =
+    dontCheck (self.callHackage "hls-call-hierarchy-plugin" "1.0.2.0" { });
+  hls-ormolu-plugin =
+    dontCheck (self.callHackage "hls-ormolu-plugin" "1.0.1.0" { });
+  hls-graph = dontCheck (self.callHackage "hls-graph" "1.6.0.0" { });
+  hls-refine-imports-plugin =
+    dontCheck (self.callHackage "hls-refine-imports-plugin" "1.0.1.0" { });
+  hls-pragmas-plugin =
+    dontCheck (self.callHackage "hls-pragmas-plugin" "1.0.1.0" { });
+  hls-splice-plugin =
+    dontCheck (self.callHackage "hls-splice-plugin" "1.0.1.0" { });
+  hls-stylish-haskell-plugin =
+    dontCheck (self.callHackage "hls-stylish-haskell-plugin" "1.0.1.0" { });
+  hls-test-utils = dontCheck (self.callHackage "hls-test-utils" "1.2.0.0" { });
+  hls-module-name-plugin =
+    dontCheck (self.callHackage "hls-module-name-plugin" "1.0.1.0" { });
+  hls-haddock-comments-plugin =
+    dontCheck (self.callHackage "hls-haddock-comments-plugin" "1.0.1.0" { });
+  hls-floskell-plugin =
+    dontCheck (self.callHackage "hls-floskell-plugin" "1.0.1.0" { });
+  hls-fourmolu-plugin =
+    dontCheck (self.callHackage "hls-fourmolu-plugin" "1.0.2.0" { });
+  lsp = dontCheck (self.callHackage "lsp" "1.4.0.0" { });
+  lsp-types = dontCheck (self.callHackage "lsp-types" "1.4.0.0" { });
 
   # Hackage dependencies of haskell-language-server that are broken with the default version
   floskell = dontCheck (self.callHackage "floskell" "0.10.4" { });
