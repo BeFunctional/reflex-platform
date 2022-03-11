@@ -24,7 +24,6 @@ let
   hlsHlintPluginSrc = hlsSrc + "/plugins/hls-hlint-plugin";
   hlsPluginApiSrc = hlsSrc + "/hls-plugin-api";
   hlsRetriePluginSrc = hlsSrc + "/plugins/hls-retrie-plugin";
-  # hlsTacticsPluginSrc = hlsSrc + "/plugins/tactics";
   shakeBenchSrc = hlsSrc + "/shake-bench";
 
 in self: super: {
@@ -50,7 +49,6 @@ in self: super: {
   hls-retrie-plugin = dontCheck (self.callCabal2nix "hls-retrie-plugin" hlsRetriePluginSrc {});
   shake-bench = dontCheck (self.callCabal2nix "shake-bench" shakeBenchSrc {});
 
-
   # Hackage dependencies of haskell-language-server
   fourmolu = dontCheck (self.callHackage "fourmolu" "0.3.0.0" {});
   ormolu = dontCheck (self.callHackage "ormolu" "0.1.4.1" {});
@@ -63,25 +61,9 @@ in self: super: {
   hls-brittany-plugin = dontCheck (self.callHackage "hls-brittany-plugin" "1.0.1.1" {});
   hls-call-hierarchy-plugin = dontCheck (self.callHackage "hls-call-hierarchy-plugin" "1.0.1.1" {});
   hls-floskell-plugin = dontCheck (self.callHackage "hls-floskell-plugin" "1.0.0.2" {});
-  # hls-call-hierarchy-plugin = self.callHackageDirect {
-  #         pkg = "hls-call-hierarchy-plugin";
-  #         ver = "1.0.2.0";
-  #         sha256 = "JrBcBd5XJzTrC7PB81guts9YfEwfqs0Tlhprvww4Wz0=";
-  #       } { };
-
-  # hls-floskell-plugin = self.callHackageDirect {
-  #         pkg = "hls-floskell-plugin";
-  #         ver = "1.0.1.0";
-  #         sha256 = "7vJR9dCImkoa137ieMy8aSuMmjXEcXIu5MgoJOyPna4=";
-  #       } { };
   hls-fourmolu-plugin = dontCheck (self.callHackage "hls-fourmolu-plugin" "1.0.1.1" {});
   hls-haddock-comments-plugin = dontCheck (self.callHackage "hls-haddock-comments-plugin" "1.0.0.4" {});
   hls-graph = dontCheck (self.callHackage "hls-graph" "1.5.1.1" {});
-  # hls-haddock-comments-plugin = self.callHackageDirect {
-  #         pkg = "hls-haddock-comments-plugin";
-  #         ver = "1.0.1.0";
-  #         sha256 = "LW6CGQ7QorSuy05MNIFN4mbgvk93TqRpnDc1gn8EIoc=";
-  #       } { };
 
   hls-module-name-plugin = dontCheck (self.callHackage "hls-module-name-plugin" "1.0.0.2" {});
   hls-ormolu-plugin = dontCheck (self.callHackage "hls-ormolu-plugin" "1.0.1.2" {});
