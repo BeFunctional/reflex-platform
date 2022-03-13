@@ -54,7 +54,7 @@ in self: super: {
   # ormolu = dontCheck (self.callHackage "ormolu" "0.1.4.1" {});
   # with-utf8 = dontCheck (self.callHackage "with-utf8" "1.0.2.1" {});
   # stylish-haskell = dontCheck (self.callHackage "stylish-haskell" "0.12.2.0" {});
-  # hie-bios = dontCheck (self.callHackage "hie-bios" "0.7.1" {});
+  hie-bios = dontCheck (self.callHackage "hie-bios" "0.7.1" {});
   # brittany = dontCheck (self.callHackage "brittany" "0.13.1.0" { });
   hls-tactics-plugin =
     dontCheck (self.callHackage "hls-tactics-plugin" "1.4.0.0" { });
@@ -64,7 +64,7 @@ in self: super: {
     dontCheck (self.callHackage "hls-call-hierarchy-plugin" "1.0.0.0" { });
   hls-ormolu-plugin =
     dontCheck (self.callHackage "hls-ormolu-plugin" "1.0.0.1" { });
-  hls-graph = dontCheck (self.callHackage "hls-graph" "1.3.0.0" { });
+  hls-graph = dontCheck (self.callHackage "hls-graph" "1.5.1.0" { });
   hls-refine-imports-plugin =
     dontCheck (self.callHackage "hls-refine-imports-plugin" "1.0.0.1" { });
   hls-pragmas-plugin =
@@ -88,19 +88,19 @@ in self: super: {
   # floskell = dontCheck (self.callHackage "floskell" "0.10.4" {});
 
   # # Hackage dependencies of ghcide
-  # ghc-check = dontCheck (self.callHackage "ghc-check" "0.5.0.4" {});
-  # opentelemetry = dontCheck (self.callHackage "opentelemetry" "0.6.1" {});
+  ghc-check = dontCheck (self.callHackage "ghc-check" "0.5.0.4" {});
+  opentelemetry = dontCheck (self.callHackage "opentelemetry" "0.6.1" {});
   # lsp-test = dontCheck (self.callHackage "lsp-test" "0.14.0.1" {});
-  # heapsize = dontCheck (self.callHackage "heapsize" "0.3.0.1" { });
-  # implicit-hie-cradle =
-  #   dontCheck (self.callHackage "implicit-hie-cradle" "0.3.0.5" { });
-  # shake = dontCheck (self.callHackage "shake" "0.19.2" {});
+  heapsize = dontCheck (self.callHackage "heapsize" "0.3.0.1" { });
+  implicit-hie-cradle =
+    dontCheck (self.callHackage "implicit-hie-cradle" "0.3.0.5" { });
+  shake = dontCheck (self.callHackage "shake" "0.19.4" {});
 
   # # opentelemetry
   # ghc-trace-events = dontCheck (self.callHackage "ghc-trace-events" "0.1.2.1" {});
 
   # # Hackage dependencies of implicit-hie-cradle
-  # implicit-hie = dontCheck (self.callHackage "implicit-hie" "0.1.2.6" {});
+  implicit-hie = dontCheck (self.callHackage "implicit-hie" "0.1.2.6" {});
 
   # # Hackage dependencies of floskell that are broken with the default version
   # monad-dijkstra = dontCheck (self.callHackage "monad-dijkstra" "0.1.1.2" {});
@@ -160,9 +160,9 @@ in self: super: {
   lucid = dontCheck (super.lucid);
   # Needed by hls
   hiedb = dontCheck (self.callHackage "hiedb" "0.4.1.0" { });
-  # th-compat = dontCheck (self.callHackage "th-compat" "0.1.3" {});
+  th-compat = dontCheck (self.callHackage "th-compat" "0.1.3" {});
   # # lsp
-  # unliftio-core = dontCheck (self.callHackage "unliftio-core" "0.2.0.0" {});
+  unliftio-core = dontCheck (self.callHackage "unliftio-core" "0.2.0.0" {});
   # # hls-eval-plugin
   # megaparsec = dontCheck (self.callHackage "megaparsec" "9.0.1" {});
 }
