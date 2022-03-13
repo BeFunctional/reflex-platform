@@ -33,7 +33,7 @@ in self: super: {
 
   # Source dependencies of haskell-language-server
   cabal-helper = dontCheck (self.callCabal2nix "cabal-helper" cabalHelperSrc {});
-  ghcide = dontCheck (self.callCabal2nix "ghcide" ghcideSrc {});
+  ghcide = disableCabalFlag (dontCheck (self.callCabal2nix "ghcide" ghcideSrc {})) "bench-exe" ;
   ghc-mod-core = dontCheck (self.callCabal2nix "ghc-mod-core" ghcModCoreSrc {});
   ghc-mod = dontCheck (self.callCabal2nix "ghc-mod" ghcModSrc {});
   ghc-project-types = dontCheck (self.callCabal2nix "ghc-project-types" ghcProjectTypesSrc {});
@@ -55,11 +55,11 @@ in self: super: {
   # with-utf8 = dontCheck (self.callHackage "with-utf8" "1.0.2.1" {});
   # stylish-haskell = dontCheck (self.callHackage "stylish-haskell" "0.12.2.0" {});
   hie-bios = dontCheck (self.callHackage "hie-bios" "0.7.1" {});
-  # brittany = dontCheck (self.callHackage "brittany" "0.13.1.0" { });
+  brittany = dontCheck (self.callHackage "brittany" "0.13.1.0" { });
   hls-tactics-plugin =
     dontCheck (self.callHackage "hls-tactics-plugin" "1.4.0.0" { });
   hls-brittany-plugin =
-    dontCheck (self.callHackage "hls-brittany-plugin" "1.0.0.1" { });
+    dontCheck (self.callHackage "hls-brittany-plugin" "1.0.1.1" { });
   hls-call-hierarchy-plugin =
     dontCheck (self.callHackage "hls-call-hierarchy-plugin" "1.0.0.0" { });
   hls-ormolu-plugin =
@@ -97,64 +97,64 @@ in self: super: {
   shake = dontCheck (self.callHackage "shake" "0.19.4" {});
 
   # # opentelemetry
-  # ghc-trace-events = dontCheck (self.callHackage "ghc-trace-events" "0.1.2.1" {});
+  ghc-trace-events = dontCheck (self.callHackage "ghc-trace-events" "0.1.2.1" {});
 
   # # Hackage dependencies of implicit-hie-cradle
   implicit-hie = dontCheck (self.callHackage "implicit-hie" "0.1.2.6" {});
 
-  # # Hackage dependencies of floskell that are broken with the default version
-  # monad-dijkstra = dontCheck (self.callHackage "monad-dijkstra" "0.1.1.2" {});
+  # Hackage dependencies of floskell that are broken with the default version
+  monad-dijkstra = dontCheck (self.callHackage "monad-dijkstra" "0.1.1.2" {});
 
-  # # Hackage dependencies of fourmolu that are broken with the default version
-  # HsYAML-aeson = dontCheck (self.callHackage "HsYAML-aeson" "0.2.0.0" {});
-  # aeson = dontCheck (self.callHackage "aeson" "1.5.2.0" {});
-  # ghc-lib-parser = dontCheck (self.callHackage "ghc-lib-parser" "8.10.2.20200916" {});
-  # ghc-lib = dontCheck (self.callHackage "ghc-lib" "8.10.2.20200916" {});
+  # Hackage dependencies of fourmolu that are broken with the default version
+  HsYAML-aeson = dontCheck (self.callHackage "HsYAML-aeson" "0.2.0.0" {});
+  aeson = dontCheck (self.callHackage "aeson" "1.5.2.0" {});
+  ghc-lib-parser = dontCheck (self.callHackage "ghc-lib-parser" "8.10.2.20200916" {});
+  ghc-lib = dontCheck (self.callHackage "ghc-lib" "8.10.2.20200916" {});
 
-  # # Hackage dependencies of hls-hlint-plugin
-  # ghc-lib-parser-ex = dontCheck (self.callHackage "ghc-lib-parser-ex" "8.10.0.16" {});
+  # Hackage dependencies of hls-hlint-plugin
+  ghc-lib-parser-ex = dontCheck (self.callHackage "ghc-lib-parser-ex" "8.10.0.16" {});
 
-  # # Hackage dependencies of hls-retrie-plugin
-  # retrie = dontCheck (self.callHackage "retrie" "0.1.1.1" {});
+  # Hackage dependencies of hls-retrie-plugin
+  retrie = dontCheck (self.callHackage "retrie" "0.1.1.1" {});
 
-  # # Hackage dependencies of retrie
-  # optparse-applicative = dontCheck (self.callHackage "optparse-applicative" "0.15.1.0" {});
-  # ghc-exactprint = dontCheck (self.callHackage "ghc-exactprint" "0.6.2" {});
+  # Hackage dependencies of retrie
+  optparse-applicative = dontCheck (self.callHackage "optparse-applicative" "0.15.1.0" {});
+  ghc-exactprint = dontCheck (self.callHackage "ghc-exactprint" "0.6.2" {});
 
-  # # Hackage dependencies of aeson
-  # these = dontCheck (self.callHackage "these" "1.1.1.1" {});
+  # Hackage dependencies of aeson
+  these = dontCheck (self.callHackage "these" "1.1.1.1" {});
 
-  # # Hackage dependencies of ormolu
-  # ansi-terminal = dontCheck (self.callHackage "ansi-terminal" "0.10.3" {});
-  # ansi-wl-pprint = dontCheck (self.callHackage "ansi-wl-pprint" "0.6.9" {});
-  # Diff = dontCheck (self.callHackage "Diff" "0.4.0" {});
+  # Hackage dependencies of ormolu
+  ansi-terminal = dontCheck (self.callHackage "ansi-terminal" "0.10.3" {});
+  ansi-wl-pprint = dontCheck (self.callHackage "ansi-wl-pprint" "0.6.9" {});
+  Diff = dontCheck (self.callHackage "Diff" "0.4.0" {});
 
-  # test-framework = dontCheck (self.callHackage "test-framework" "0.8.2.0" {});
+  test-framework = dontCheck (self.callHackage "test-framework" "0.8.2.0" {});
 
-  # # Hackage dependencies of heapsize
-  # hashable = dontCheck (self.callHackage "hashable" "1.3.0.0" {});
+  # Hackage dependencies of heapsize
+  hashable = dontCheck (self.callHackage "hashable" "1.3.0.0" {});
 
-  # # Hackage dependencies of aeson
-  # primitive = dontCheck (self.callHackage "primitive" "0.7.1.0" {});
+  # Hackage dependencies of aeson
+  primitive = dontCheck (self.callHackage "primitive" "0.7.1.0" {});
 
-  # # Hackage dependencies of hls-plugin-api
-  # haskell-lsp = dontCheck (self.callHackage "haskell-lsp" "0.22.0.0" {});
-  # haskell-lsp-types = dontCheck (self.callHackage "haskell-lsp-types" "0.22.0.0" {});
-  # regex-tdfa = dontCheck (self.callHackage "regex-tdfa" "1.3.1.0" {});
-  # regex-base = dontCheck (self.callHackage "regex-base" "0.94.0.0" {});
-  # regex-posix = dontCheck (self.callHackage "regex-posix" "0.96.0.0"  {});
+  # Hackage dependencies of hls-plugin-api
+  haskell-lsp = dontCheck (self.callHackage "haskell-lsp" "0.22.0.0" {});
+  haskell-lsp-types = dontCheck (self.callHackage "haskell-lsp-types" "0.22.0.0" {});
+  regex-tdfa = dontCheck (self.callHackage "regex-tdfa" "1.3.1.0" {});
+  regex-base = dontCheck (self.callHackage "regex-base" "0.94.0.0" {});
+  regex-posix = dontCheck (self.callHackage "regex-posix" "0.96.0.0"  {});
 
-  # tree-diff = dontCheck (self.callHackage "tree-diff" "0.1" {});
-  # parser-combinators = dontCheck (self.callHackage "parser-combinators" "1.2.1" {});
+  tree-diff = dontCheck (self.callHackage "tree-diff" "0.1" {});
+  parser-combinators = dontCheck (self.callHackage "parser-combinators" "1.2.1" {});
 
-  # # Hackage dependencies of hls-hlint-plugin
-  # hlint = dontCheck (self.callHackage "hlint" "3.2.3" {});
+  # Hackage dependencies of hls-hlint-plugin
+  hlint = dontCheck (self.callHackage "hlint" "3.2.3" {});
 
-  # # Hackage dependencies of hlint
-  # extra = dontCheck (self.callHackage "extra" "1.7.8" {});
+  # Hackage dependencies of hlint
+  extra = dontCheck (self.callHackage "extra" "1.7.8" {});
 
-  # # Hackage dependencies of hls-tactics-plugin
-  # refinery = dontCheck (self.callHackage "refinery" "0.3.0.0" {});
+  # Hackage dependencies of hls-tactics-plugin
+  refinery = dontCheck (self.callHackage "refinery" "0.3.0.0" {});
 
 # failing tests
   lucid = dontCheck (super.lucid);
