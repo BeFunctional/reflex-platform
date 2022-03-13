@@ -50,29 +50,29 @@ in self: super: {
   shake-bench = dontCheck (self.callCabal2nix "shake-bench" shakeBenchSrc {});
 
   # # Hackage dependencies of haskell-language-server
-  # fourmolu = dontCheck (self.callHackage "fourmolu" "0.3.0.0" {});
-  # ormolu = dontCheck (self.callHackage "ormolu" "0.1.4.1" {});
-  # with-utf8 = dontCheck (self.callHackage "with-utf8" "1.0.2.1" {});
-  # stylish-haskell = dontCheck (self.callHackage "stylish-haskell" "0.12.2.0" {});
+  fourmolu = dontCheck (self.callHackage "fourmolu" "0.3.0.0" {});
+  ormolu = dontCheck (self.callHackage "ormolu" "0.1.4.1" {});
+  with-utf8 = dontCheck (self.callHackage "with-utf8" "1.0.2.1" {});
+  stylish-haskell = dontCheck (self.callHackage "stylish-haskell" "0.12.2.0" {});
   hie-bios = dontCheck (self.callHackage "hie-bios" "0.7.1" {});
-  brittany = dontCheck (self.callHackage "brittany" "0.13.1.0" { });
+  brittany = dontCheck (self.callHackage "brittany" "0.13.1.2" { });
   hls-tactics-plugin =
-    dontCheck (self.callHackage "hls-tactics-plugin" "1.4.0.0" { });
+    dontCheck (self.callHackage "hls-tactics-plugin" "1.5.0.1" { });
   hls-brittany-plugin =
     dontCheck (self.callHackage "hls-brittany-plugin" "1.0.1.1" { });
   hls-call-hierarchy-plugin =
-    dontCheck (self.callHackage "hls-call-hierarchy-plugin" "1.0.0.0" { });
+    dontCheck (self.callHackage "hls-call-hierarchy-plugin" "1.0.1.1" { });
   hls-ormolu-plugin =
-    dontCheck (self.callHackage "hls-ormolu-plugin" "1.0.0.1" { });
+    dontCheck (self.callHackage "hls-ormolu-plugin" "1.0.1.2" { });
   hls-graph = dontCheck (self.callHackage "hls-graph" "1.5.1.0" { });
   hls-refine-imports-plugin =
-    dontCheck (self.callHackage "hls-refine-imports-plugin" "1.0.0.1" { });
+    dontCheck (self.callHackage "hls-refine-imports-plugin" "1.0.0.2" { });
   hls-pragmas-plugin =
-    dontCheck (self.callHackage "hls-pragmas-plugin" "1.0.0.1" { });
+    dontCheck (self.callHackage "hls-pragmas-plugin" "1.0.1.1" { });
   hls-splice-plugin =
-    dontCheck (self.callHackage "hls-splice-plugin" "1.0.0.3" { });
+    dontCheck (self.callHackage "hls-splice-plugin" "1.0.0.6" { });
   hls-stylish-haskell-plugin =
-    dontCheck (self.callHackage "hls-stylish-haskell-plugin" "1.0.0.2" { });
+    dontCheck (self.callHackage "hls-stylish-haskell-plugin" "1.0.0.4" { });
   hls-test-utils = dontCheck (self.callHackage "hls-test-utils" "1.1.0.1" { });
   hls-module-name-plugin =
     dontCheck (self.callHackage "hls-module-name-plugin" "1.0.0.2" { });
@@ -85,7 +85,7 @@ in self: super: {
   lsp = dontCheck (self.callHackage "lsp" "1.2.0.1" { });
   lsp-types = dontCheck (self.callHackage "lsp-types" "1.3.0.1" { });
   # # Hackage dependencies of haskell-language-server that are broken with the default version
-  # floskell = dontCheck (self.callHackage "floskell" "0.10.4" {});
+  floskell = dontCheck (self.callHackage "floskell" "0.10.4" {});
 
   # # Hackage dependencies of ghcide
   ghc-check = dontCheck (self.callHackage "ghc-check" "0.5.0.4" {});
@@ -164,5 +164,5 @@ in self: super: {
   # # lsp
   unliftio-core = dontCheck (self.callHackage "unliftio-core" "0.2.0.0" {});
   # # hls-eval-plugin
-  # megaparsec = dontCheck (self.callHackage "megaparsec" "9.0.1" {});
+  megaparsec = dontCheck (self.callHackage "megaparsec" "9.0.1" {});
 }
