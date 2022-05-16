@@ -138,10 +138,10 @@ in self: super: {
     dontCheck (self.callHackage "ghc-lib-parser" "8.10.7.20210828" { });
   ghc-lib = dontCheck (self.callHackage "ghc-lib" "8.10.7.20210828" { });
   hlint = dontCheck (self.callHackageDirect {
-          pkg = "hlint";
-          ver = "3.2.8";
-          sha256 = "nMn/Qbtlc032MbYMUhWAV7HnhFiP8iSy6+0qf1VawFg=";
-        } { });
+    pkg = "hlint";
+    ver = "3.2.8";
+    sha256 = "nMn/Qbtlc032MbYMUhWAV7HnhFiP8iSy6+0qf1VawFg=";
+  } { });
 
   ghc-exactprint = dontCheck (self.callHackage "ghc-exactprint" "0.6.4" { });
   uniplate = dontCheck (self.callHackage "uniplate" "1.6.13" { });
@@ -200,6 +200,12 @@ in self: super: {
   unliftio-core = dontCheck (self.callHackage "unliftio-core" "0.2.0.0" { });
   # hls-eval-plugin
   megaparsec = dontCheck (self.callHackage "megaparsec" "9.0.1" { });
+  # needed by much obliged. Why is this here?
+  compdata = dontCheck (self.callHackageDirect {
+    pkg = "compdata";
+    ver = "0.12.1";
+    sha256 = "3vtKD4QEAUBRtsRToNJVryDppv36qpLNRUr7c9e6OZ4=";
+  } { });
 
 }
 
